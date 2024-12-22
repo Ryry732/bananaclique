@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo da Banana</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f5f5dc;
+      margin: 0;
+      padding: 0;
+    }
+
+    .game-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      color: #ffa500;
+    }
+
+    p {
+      font-size: 1.2em;
+    }
+
+    #banana {
+      width: 150px;
+      cursor: pointer;
+      transition: transform 0.2s;
+      margin-top: 20px;
+    }
+
+    #banana:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <h1>Jogo da Banana</h1>
+    <p>Cliques: <span id="score">0</span></p>
+    <p>Recorde: <span id="highScore">0</span></p>
+    <img id="banana" src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg" alt="Banana">
+  </div>
+
+  <script>
+    let score = 0;
+    let highScore = 0;
+
+    const banana = document.getElementById("banana");
+    const scoreDisplay = document.getElementById("score");
+    const highScoreDisplay = document.getElementById("highScore");
+
+    banana.addEventListener("click", () => {
+      score++;
+      scoreDisplay.textContent = score;
+
+      if (score > highScore) {
+        highScore = score;
+        highScoreDisplay.textContent = highScore;
+      }
+    });
+  </script>
+</body>
+</html>
